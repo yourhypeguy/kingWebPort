@@ -889,17 +889,50 @@ body{
 }
 
 .parent-inputs{
+    width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
 .guest-input-1{
     border-radius: 5px;
     height: 2em;
-    width: 150px;
+    width: 100%;
     border: none;
-    margin-right: 5px;
+    
     text-align: center;
+}
+
+.guest-input-2{
+    border-radius: 5px;
+    height: 2em;
+    width: 100%;
+    background-color: rgb(105, 105, 105);
+    border: none;
+    text-align: center; 
+   
+}
+
+.guest-input-3{
+    border-radius: 5px;
+    height: 5em;
+    width: 100%;
+    background-color: rgb(105, 105, 105);
+    border: none;
+    text-align: center; 
+    margin-top: 10px;
+    color: #cecece;
+}
+
+.guest-button{
+    width: 30%;
+    height: 1.7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
   
