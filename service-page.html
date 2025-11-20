@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="follow-btn-con">
-                        <a href="#">Follow</a>
+                        <a href="https://x.com/yourhypeguyy">Follow</a>
                         <img class="twitter-logo" src="./PNG/twitter-logo.png" alt="">
                     </div>
                 </div>
@@ -69,7 +69,7 @@
 
                             <li>
                                 <img class="ul-png" src="./PNG/contact-png.png" alt="">
-                                <p><span style="color: #CC0088;">/Contact</span></p>
+                                <p><span style="color: #CC0088;">/Hire me</span></p>
                             </li>
 
                             <li>
@@ -86,14 +86,16 @@
                 </div>
 
                 <div class="email-and-text-con">
-                    <p class="email-and-text-con-p">Keep up to date with my latest projects and adventures!</p>
+                    <p class="email-and-text-con-p">Set forth your request, and I shall answer with measured <br> resolve.</p>
 
                     <div class="email-and-submit-con">
-                        <input class="email-con" type="text" name="" id="" placeholder="Email Address">
-                        <input class="submit-con" type="submit" value="Subscribe!">
+                        <form id="subscribe-form">
+                            <input class="email-con" type="text" name="email"  placeholder="Contact Me">
+                            <input class="submit-con" type="submit" value="Send😁">
+                        </form>
                     </div>
 
-                    <p>No spam. Unsubscribe any time.</p>
+                    <p>always here to help!</p>
                 </div>
             </div>
         </section>
@@ -262,21 +264,50 @@
     <footer>
         <div class="footer-logo-con">
             <div>
-                <img class="footer-logo" src="./PNG/linkedin-logo.png" alt="">
+                <a href="#" class="social-logo-link">
+                    <img class="footer-logo" src="./PNG/linkedin-logo.png" alt="">
+                </a>
 
-                <img class="footer-logo" src="./PNG/twitter-logo.png" alt="">
+                <a href="https://x.com/yourhypeguyy" class="social-logo-link">
+                    <img class="footer-logo" src="./PNG/twitter-logo.png" alt="">
+                </a>
 
-                <img class="footer-logo" src="./PNG/github-logo.gif" alt="">
+                <a href="https://github.com/yourhypeguy" class="social-logo-link">
+                    <img class="footer-logo" src="./PNG/github-logo.gif" alt="">
+                </a>
 
-                <img class="footer-logo" src="./PNG/whatsapp-logo.png" alt="">
+                <a href="http://wa.me/2348127792812" class="social-logo-link">
+                    <img class="footer-logo" src="./PNG/whatsapp-logo.png" alt="">
+                </a>
 
-                <img class="footer-logo" src="./PNG/threads-logo.png" alt="">
+                <a href="https://www.threads.com/@yourhypeguy_?invite=0" class="social-logo-link">
+                    <img class="footer-logo" src="./PNG/threads-logo.png" alt="">
+                </a>
 
-                <img class="footer-logo" src="./PNG/instagram-logo.png" alt="">
+                <a href="https://www.instagram.com/yourhypeguy_?igsh=MXRtYWI2NzRxbWFqMQ%3D%3D&utm_source=qr " class="social-logo-link">
+                    <img class="footer-logo" src="./PNG/instagram-logo.png" alt="">
+                </a>
             </div>
-            <p>kingsley © 2022</p>
+            <p>kingsley THE KING © 2026</p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+        <script>
+        emailjs.init("4xy9V_91aVQYyEpHq");
+
+        document.getElementById("subscribe-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        emailjs.sendForm("service_a0kzt81", "template_kd9zc3r", this)
+        .then(() => {
+            alert("Message sent successfully!");
+        }, (error) => {
+            alert("Failed to send. Error: " + JSON.stringify(error));
+        });
+          });
+        </script>
 
     <script>
         (function () {
