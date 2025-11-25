@@ -102,25 +102,25 @@
 
              <nav class="second-nav">
                 <ul>
+                    <li>
+                        <a href="index.html#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="service-page.html#service">Servicies</a>
+                    </li>
+
+                    <li>
+                        <a href="project-page.html#project">Projects</a>
+                    </li>
+
                     <li class="first-li">
-                        <a href="index.html">About</a>
-                    </li>
-
-                    <li>
-                        <a href="service-page.html">Services</a>
-                    </li>
-
-                    <li>
-                        <a href="project-page.html">Projects</a>
-                    </li>
-
-                    <li>
-                        <a href="guestBook.html">Guestbook</a>
+                        <a href="guestBook.html#guestBook">Guestbook</a>
                     </li>
                 </ul>
              </nav>
           
-        <section>
+        <section id="guestBook">
             <div class="guestbook-CON">
                 <div>
                     <h2>Hi again👋 and again</h2>
@@ -129,7 +129,7 @@
 
                 <div class="guestbook-input-con">
 
-                    <form class="guestbook-form" action="">
+                    <form class="guestbook-form" id="guestbookForm">
                         <div class="parent-inputs">
                             <div class="input-row">
                                 <label class="name-font" for="name">name</label>
@@ -138,7 +138,7 @@
 
                             <div class="input-row">
                                 <label class="name-font" for="picture">Picture</label>
-                                <input class="guest-input-2" type="file" id="picture" name="picture">
+                                <input class="guest-input-2" type="file" id="picture" name="picture" accept="image/*">
                             </div>
                         </div>
 
@@ -147,8 +147,9 @@
                             <input class="guest-input-3"  type="text" id="comment" name="comment" placeholder="Comment" required>
                         </div>
 
-                        <button class="guest-button" type="submit">Send😁</button>
+                        <button class="guest-button" id="sendBtn" type="submit">Send😁</button>
                     </form>
+                    <p id="statusMessage" aria-live="polite"></p>
 
                 </div>
 
@@ -336,5 +337,61 @@
 
         }());
     </script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+// 1. Initialize EmailJS (REQUIRED)
+emailjs.init("4xy9V_91aVQYyEpHq");
+
+// 2. Form submit logic
+document.getElementById("guestbookForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const comment = document.getElementById("comment").value;
+    const pictureFile = document.getElementById("picture").files[0];
+
+    let base64Image = "";
+
+    // 50KB limit
+    if (pictureFile) {
+        const maxSize = 50 * 1024;
+
+        if (pictureFile.size > maxSize) {
+            alert("❌ Image too large. Upload a file under 50KB.");
+            return;
+        }
+
+        base64Image = await toBase64(pictureFile);
+    }
+
+    emailjs.send("service_te7qjqq", "template_jx8e5dg", {
+        name: name,
+        comment: comment,
+        picture: base64Image
+    })
+    .then(() => {
+        alert("Message sent!");
+    })
+    .catch((err) => {
+        console.error(err);
+        alert("❌ Failed to send (400). Check your EmailJS IDs or template fields.");
+    });
+});
+
+function toBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
+</script>
+
+
+
+
 </body>
 </html>

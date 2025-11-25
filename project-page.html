@@ -102,25 +102,25 @@
 
              <nav class="second-nav">
                 <ul>
+                    <li >
+                        <a href="index.html#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="service-page.html#service">Servicies</a>
+                    </li>
+
                     <li class="first-li">
-                        <a href="index.html">About</a>
+                        <a href="project-page.html#project">Projects</a>
                     </li>
 
                     <li>
-                        <a href="service-page.html">Servicies</a>
-                    </li>
-
-                    <li>
-                        <a href="project-page.html">Project</a>
-                    </li>
-
-                    <li>
-                        <a href="guestBook.html">Guestbook</a>
+                        <a href="guestBook.html#guestBook">Guestbook</a>
                     </li>
                 </ul>
              </nav>
 
-        <section>
+        <section id="project">
 
             <div class="project-h2-con">
 
@@ -150,7 +150,8 @@
 
                      <div class="project-img-con"> 
 
-                        <img class="project-img-con-image" src="./PNG/Device-template .PNG" alt="">
+                        
+                        <video class="project-img-con-image" src="./PNG/CHARITY-PROJECT-PROJECT-VID.mp4" autoplay muted loop type="video/mp4"></video>
 
                      </div>
 
@@ -387,6 +388,28 @@
          }, 1000);
 
         }());
+
+
+       const videos = document.querySelectorAll('.project-img-con-image');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const video = entry.target;
+
+    if (entry.isIntersecting) {
+      video.play();               // Start playing when in view
+    } else {
+      video.pause();              // Pause when out of view
+      video.currentTime = 0;      // Reset to start
+    }
+  });
+}, {
+  threshold: 0.3   // Start playing when 30% visible
+});
+
+videos.forEach(video => observer.observe(video));
     </script>
+
+    
 </body>
 </html>
