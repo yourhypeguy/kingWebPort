@@ -361,6 +361,49 @@
 
         <script>
 
+            document.addEventListener('DOMContentLoaded', () => {
+                const roles = [
+                    'a Political Scientist 🗳️',
+                    'a Mil-Sim Specialist 🪖🎖️',
+                    'a Crypto Trader 💹',  
+                ];
+
+                const textElement = document.getElementById('typing-text');
+                let index = 0;
+                let charIndex = 0;
+                let deleting = false;
+
+                function typeText() {
+                    const currentText = roles[index];
+
+                    if (!deleting) {
+                    textElement.textContent = currentText.slice(0, charIndex + 1);
+                    charIndex++;
+
+                    if (charIndex === currentText.length) {
+                        deleting = true;
+                        setTimeout(typeText, 3000); // Pause before deleting
+                    } else {
+                        setTimeout(typeText, 30); // Typing speed
+                    }
+                    } else {
+                    textElement.textContent = currentText.slice(0, charIndex - 1);
+                    charIndex--;
+
+                    if (charIndex === 0) {
+                        deleting = false;
+                        index = (index + 1) % roles.length;
+                    }
+                    setTimeout(typeText, 10); // Deleting speed
+                    }
+                }
+
+                // Initial call
+                typeText();
+                });
+
+
+
             document.addEventListener('DOMContentLoaded', function() {
             const sections = document.querySelectorAll('.fade-in');
             

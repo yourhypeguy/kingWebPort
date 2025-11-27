@@ -30,7 +30,7 @@
          </nav>
     </header>
    
-    <main>
+    <main class="fade-in">
         <section>
             <div class="first-section">
                 <div class="container-for-css">
@@ -57,7 +57,7 @@
                     <div class="two-p-tags">
                         <p class="p-tag1">Brings ideas to life with code! ✨</p>
 
-                        <p class="p-tag2">Senior Web Engineer. Creative Developer. Content Creator. Whimsical Specialist.  Per-Time video Editor.</p>
+                        <p class="p-tag2">I'm a creative Front-end and Content Developer. Content Creator. Video Editor and also <span id="typing-text">.</span></p>
                     </div>
 
                     <div class="logos-and-Text-con">
@@ -127,7 +127,7 @@
                     <p>Thanks for stopping by. Feel free to leave a note or share a thought — always glad to connect with others who appreciate clean builds and good design.</p>
                 </div>
 
-                <div class="guestbook-input-con">
+                <div class="guestbook-input-con fade-in">
 
                     <form class="guestbook-form" id="guestbookForm">
                         <div class="parent-inputs">
@@ -154,7 +154,7 @@
                 </div>
 
                 
-                    <div class="comment-con">
+                    <div class="comment-con fade-in">
 
                         <div class="guest-comment">
 
@@ -177,7 +177,7 @@
 
                     </div>
 
-                    <div class="comment-con">
+                    <div class="comment-con fade-in">
 
                         <div class="guest-comment">
 
@@ -200,7 +200,7 @@
 
                     </div>
 
-                    <div class="comment-con">
+                    <div class="comment-con fade-in">
 
                         <div class="guest-comment">
 
@@ -223,7 +223,7 @@
 
                     </div>
 
-                    <div class="comment-con">
+                    <div class="comment-con fade-in">
 
                         <div class="guest-comment">
 
@@ -246,7 +246,7 @@
 
                     </div>
 
-                    <div class="comment-con">
+                    <div class="comment-con fade-in">
 
                         <div class="guest-comment">
 
@@ -308,6 +308,47 @@
      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
         <script>
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const roles = [
+                    'a Political Scientist 🗳️',
+                    'a Mil-Sim Specialist 🪖🎖️',
+                    'a Crypto Trader 💹',  
+                ];
+
+                const textElement = document.getElementById('typing-text');
+                let index = 0;
+                let charIndex = 0;
+                let deleting = false;
+
+                function typeText() {
+                    const currentText = roles[index];
+
+                    if (!deleting) {
+                    textElement.textContent = currentText.slice(0, charIndex + 1);
+                    charIndex++;
+
+                    if (charIndex === currentText.length) {
+                        deleting = true;
+                        setTimeout(typeText, 3000); // Pause before deleting
+                    } else {
+                        setTimeout(typeText, 30); // Typing speed
+                    }
+                    } else {
+                    textElement.textContent = currentText.slice(0, charIndex - 1);
+                    charIndex--;
+
+                    if (charIndex === 0) {
+                        deleting = false;
+                        index = (index + 1) % roles.length;
+                    }
+                    setTimeout(typeText, 10); // Deleting speed
+                    }
+                }
+
+                // Initial call
+                typeText();
+                });
 
             document.addEventListener('DOMContentLoaded', function() {
             const sections = document.querySelectorAll('.fade-in');
