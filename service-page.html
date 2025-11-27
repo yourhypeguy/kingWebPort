@@ -30,7 +30,7 @@
          </nav>
     </header>
    
-    <main>
+    <main class="fade-in">
         <section>
             <div class="first-section">
                 <div class="container-for-css">
@@ -181,9 +181,9 @@
             </div>
         </section>
 
-        <section>
+        <section class="fade-in">
             <div class="service-offer">
-                <div class="service">
+                <div class="service fade-in">
                     <div class="service-offer-con">
                         <div class="profile-Pic-con-service">
                             <img class="service-profile-pic" src="./PNG/profile-pic.jpeg" alt="">
@@ -208,7 +208,7 @@
                     </div>
                 </div>
 
-                <div class="service">
+                <div class="service fade-in">
                     <div class="service-offer-con">
                         <div class="profile-Pic-con-service">
                             <img class="service-profile-pic" src="./PNG/profile-pic.jpeg" alt="">
@@ -233,7 +233,7 @@
                     </div>
                 </div>
 
-                <div class="service">
+                <div class="service fade-in">
                     <div class="service-offer-con">
                         <div class="profile-Pic-con-service">
                             <img class="service-profile-pic" src="./PNG/profile-pic.jpeg" alt="">
@@ -295,6 +295,23 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
         <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+                });
+            }, { threshold: 0.005 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            });
+
+
         emailjs.init("4xy9V_91aVQYyEpHq");
 
         document.getElementById("subscribe-form").addEventListener("submit", function(e) {

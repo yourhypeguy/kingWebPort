@@ -30,8 +30,8 @@
          </nav>
     </header>
    
-    <main>
-        <section>
+    <main class="fade-in">
+        <section >
             <div class="first-section">
                 <div class="container-for-css">
                     
@@ -100,7 +100,7 @@
             </div>
         </section>
 
-             <nav class="second-nav">
+             <nav class="second-nav ">
                 <ul>
                     <li class="first-li">
                         <a href="index.html#about">About</a>
@@ -120,20 +120,20 @@
                 </ul>
              </nav>
           
-        <section id="about">
+        <section id="about ">
 
             <div class="about-section-con">
-                <h2>Hi there!👋</h2>
+                <h2 >Hi there!👋</h2>
 
                 <p class="paragraph-1">
                     I'm Kingsley (YourHypeGuy). I'm a web developer that thrives on bringing ideas to life with code!
                 </p>
 
-                <p class="paragraph-2">
+                <p class="paragraph-2 fade-in">
                     I advocate for creative coding giving you the confidence to build anything imaginable. I enjoy speaking about this and showing people how to level up their skills.
                 </p>
 
-                <p class="paragraph-3">
+                <p class="paragraph-3 fade-in">
                     I’m known for my whimsical creations and ability to solve complex problems. I’m amazed that opening a computer gives instant access to learning anything at your fingertips, motivating me to create, explore, and innovate with every project I tackle.
                 </p>
 
@@ -141,29 +141,29 @@
                 <div class="picture-con">
 
                     <div class="my-picture-con">
-                        <img class="my-picture" src="./PNG/my-picture.jpeg" alt="">
-                        <img class="my-picture" src="./PNG/my-picture3.jpeg" alt="">
-                        <img class="my-picture" src="./PNG/my-picture2.jpeg" alt="">
+                        <img class="my-picture fade-in" src="./PNG/my-picture.jpeg" alt="">
+                        <img class="my-picture fade-in" src="./PNG/my-picture3.jpeg" alt="">
+                        <img class="my-picture fade-in" src="./PNG/my-picture2.jpeg" alt="">
                     </div>
                     
-                    <p class="paragraph-4">
+                    <p class="paragraph-4 fade-in">
                         life Experience after school so far🔥.
                     </p>
                 </div>
 
 
-                <p class="paragraph-5">
+                <p class="paragraph-5 fade-in">
                     I've been fortunate to work with and for names such as Cydene, Cyber-Space, Rizzy Mart, and other freelancing. I'm currently a Software Tester and Developer at CYDENE where I work on the web platform.
                 </p>
 
                 
 
-                <p class="paragraph-8">
+                <p class="paragraph-8   fade-in">
                     Reach out and say "Hey!". I look forward to hearing from you!
                 </p>
 
 
-                <div>
+                <div class="fade-in">
                     <p class="paragraph-9">
                         Stay awesome!
                     </p>
@@ -211,6 +211,24 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
         <script>
+             document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('.fade-in');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.005 });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+});
+
+
+
         emailjs.init("4xy9V_91aVQYyEpHq");
 
         document.getElementById("subscribe-form").addEventListener("submit", function(e) {
@@ -226,6 +244,9 @@
         </script>
 
     <script>
+       
+
+
         (function () {
 
          var clockElement = document.getElementById( "clock" );

@@ -30,7 +30,7 @@
          </nav>
     </header>
    
-    <main>
+    <main class="fade-in">
         <section>
             <div class="first-section">
                 <div class="container-for-css">
@@ -132,7 +132,7 @@
 
                 <div>
 
-                   <div class="project-con">
+                   <div class="project-con fade-in"> 
 
                      <div class="project-title-con">
 
@@ -151,7 +151,7 @@
                      <div class="project-img-con"> 
 
                         
-                        <video class="project-img-con-image" src="./PNG/CHARITY-PROJECT-PROJECT-VID.mp4" autoplay muted loop type="video/mp4"></video>
+                        <video class="project-img-con-image" src="./PNG/CHARITY-PROJECT-PROJECT-VID.mp4" autoplay muted loop playsinline type="video/mp4"></video>
 
                      </div>
 
@@ -179,7 +179,7 @@
                     
                    </div>
 
-                   <div class="project-con">
+                   <div class="project-con fade-in">
 
                      <div class="project-title-con">
 
@@ -197,7 +197,7 @@
 
                      <div class="project-img-con"> 
 
-                         <video class="project-img-con-image" src="./PNG/second-project-vid.mp4" autoplay muted loop type="video/mp4"></video>
+                         <video class="project-img-con-image" src="./PNG/second-project-vid.mp4" autoplay muted playsinline loop type="video/mp4"></video>
 
                      </div>
 
@@ -225,7 +225,7 @@
                     
                    </div>
 
-                   <div class="project-con">
+                   <div class="project-con fade-in">
 
                      <div class="project-title-con">
 
@@ -271,7 +271,7 @@
                     
                    </div>
 
-                   <div class="project-con">
+                   <div class="project-con fade-in">
 
                      <div class="project-title-con">
 
@@ -360,6 +360,24 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
         <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+                });
+            }, { threshold: 0.005 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            });
+
+            
         emailjs.init("4xy9V_91aVQYyEpHq");
 
         document.getElementById("subscribe-form").addEventListener("submit", function(e) {
