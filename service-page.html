@@ -34,7 +34,9 @@
         <section>
             <div class="first-section">
                 <div class="container-for-css">
-                    
+                    <div class="space-layer">
+                        <div class="sun"></div>
+                    </div>
                 </div>
 
                 <div class="text-and-pic-CON">
@@ -293,6 +295,117 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+                    <script>
+                const space = document.querySelector(".space-layer");
+
+                /* ⭐ 190 STARS ⭐ */
+                for (let i = 0; i < 190; i++) {
+                    let star = document.createElement("div");
+                    star.classList.add("star");
+
+                    let size = Math.random() * 2 + 1;
+                    star.style.width = size + "px";
+                    star.style.height = size + "px";
+
+                    star.style.top = Math.random() * 100 + "%";
+                    star.style.left = Math.random() * 300 + "%";
+
+                    star.style.animationDuration = (2 + Math.random() * 4) + "s";
+                    star.style.animationDelay = (Math.random() * 5) + "s";
+
+                    space.appendChild(star);
+                }
+
+                /* ⭐ NEBULA ⭐ */
+                function createNebula() {
+                    const neb = document.createElement("div");
+                    neb.classList.add("nebula");
+
+                    let pick = Math.floor(Math.random() * 3) + 1;
+                    if (pick === 2) neb.classList.add("n2");
+                    if (pick === 3) neb.classList.add("n3");
+
+                    neb.style.top = Math.random() * 70 + "%";
+                    neb.style.left = Math.random() * 250 + "%";
+
+                    space.appendChild(neb);
+                }
+
+                for (let n = 0; n < 6; n++) {
+                    createNebula();
+                }
+
+                /* ⭐ RANDOM SHOOTING STARS ⭐ */
+                function createShootingStar() {
+                    const star = document.createElement("div");
+                    star.classList.add("shooting-star");
+
+                    const spaceRect = document.querySelector(".container-for-css").getBoundingClientRect();
+
+                    let startY = Math.random() * spaceRect.height;
+
+                    star.style.top = startY + "px";
+                    star.style.left = spaceRect.width + "px";
+
+                    document.querySelector(".container-for-css").appendChild(star);
+
+                    setTimeout(() => star.remove(), 1200);
+                }
+
+                setInterval(() => {
+                    if (Math.random() < 0.4) {
+                        createShootingStar();
+                    }
+                }, 700);
+
+                /* ⭐ BULLET SHOOTING ⭐ */
+                function shootBullet() {
+                    const bullet = document.createElement("div");
+                    bullet.classList.add("bullet");
+
+                    const ufo = document.querySelector(".ufo");
+                    const rect = ufo.getBoundingClientRect();
+                    const cRect = document.querySelector(".container-for-css").getBoundingClientRect();
+
+                    let startX = rect.right - cRect.left - 5;
+                    let startY = rect.top - cRect.top + 22;
+
+                    bullet.style.left = startX + "px";
+                    bullet.style.top = startY + "px";
+
+                    document.querySelector(".container-for-css").appendChild(bullet);
+
+                    let pos = 0;
+                    let speed = 14;
+
+                    let interval = setInterval(() => {
+                        pos += speed;
+                        bullet.style.transform = `translateX(${pos}px)`;
+
+                        if (pos > 500) {
+                            bullet.remove();
+                            clearInterval(interval);
+                        }
+                    }, 16);
+                }
+
+                setInterval(() => {
+                    shootBullet();
+                    shootBullet();
+                }, 500);
+
+                /* ⭐ ADD UFO ⭐ */
+                const ufo = document.createElement("div");
+                ufo.classList.add("ufo");
+                ufo.innerHTML = `
+                    <div class="body"></div>
+                    <div class="cockpit"></div>
+                    <div class="cannon-left"><div class="cannon-tip"></div></div>
+                    <div class="cannon-right"><div class="cannon-tip"></div></div>
+                `;
+                document.querySelector(".container-for-css").appendChild(ufo);
+                </script>
 
         <script>
 

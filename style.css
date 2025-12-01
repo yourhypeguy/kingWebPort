@@ -1055,6 +1055,251 @@ body{
 
 
 
+
+
+
+
+
+
+
+
+/* Your container */
+.container-for-css{
+    max-width: 50%;
+    min-width: 30em;
+    height: 15.5em;
+    background-color: #000; /* Space stays black */
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ⭐ MOVING SPACE LAYER (LOOPED BACKGROUND) ⭐ */
+.space-layer {
+    position: absolute;
+    width: 300%; /* long strip */
+    height: 100%;
+    left: 0;
+    top: 0;
+    animation: spaceLoop 35s linear infinite;
+}
+
+@keyframes spaceLoop {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-66.666%); }
+}
+
+/* Stars */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+/* twinkle only */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.2; }
+}
+
+/* Sun (slow distance movement) */
+.sun {
+    position: absolute;
+    top: 15%;
+    right: 70%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+        #fffbe6 10%,
+        #ffd77a 25%,
+        #ffb84d 45%,
+        rgba(255,120,0,0.28) 60%,
+        transparent 100%
+    );
+    box-shadow:
+        0 0 10px 5px rgba(255,180,0,0.25),
+        0 0 40px 20px rgba(255,150,0,0.12),
+        0 0 90px 40px rgba(255,120,0,0.06);
+    animation:
+        sunPulse 9s infinite ease-in-out,
+        sunMove 175s linear infinite;
+}
+
+@keyframes sunMove {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-20%); }
+}
+
+@keyframes sunPulse {
+    0%, 100% { transform: scale(1); opacity: 0.55; }
+    50%      { transform: scale(1.03); opacity: 0.75; }
+}
+
+/* Nebula clouds */
+.nebula {
+    position: absolute;
+    width: 260px;
+    height: 160px;
+    background: radial-gradient(circle at 30% 30%,
+        rgba(255, 0, 200, 0.25),
+        rgba(100, 0, 150, 0.20),
+        rgba(0, 0, 60, 0.15),
+        transparent 70%
+    );
+    filter: blur(18px);
+    opacity: 0.35;
+    animation: nebulaFloat 40s linear infinite;
+    pointer-events: none;
+}
+
+.nebula.n2 {
+    background: radial-gradient(circle at 60% 40%,
+        rgba(0, 180, 255, 0.25),
+        rgba(0, 100, 180, 0.20),
+        rgba(0, 40, 120, 0.15),
+        transparent 75%
+    );
+}
+
+.nebula.n3 {
+    background: radial-gradient(circle at 50% 60%,
+        rgba(255, 200, 0, 0.23),
+        rgba(200, 80, 0, 0.18),
+        rgba(100, 40, 0, 0.15),
+        transparent 70%
+    );
+}
+
+@keyframes nebulaFloat {
+    0% { transform: translateX(0) translateY(0) scale(1); }
+    50% { transform: translateX(-40px) translateY(20px) scale(1.05); }
+    100% { transform: translateX(0) translateY(0) scale(1); }
+}
+
+/* UFO */
+.ufo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 40px;
+    animation:
+        ufoFloat 3s infinite ease-in-out,
+        wobble 3s infinite ease-in-out,
+        ufoLoop 14s infinite ease-in-out;
+}
+
+/* ⭐ EXPANDED LOOPED RANGE ⭐ */
+@keyframes ufoLoop {
+    0%   { transform: translate(-50%, -50%) translateX(-160px) translateY(-20px); }
+    25%  { transform: translate(-50%, -50%) translateX(120px) translateY(-60px); }
+    50%  { transform: translate(-50%, -50%) translateX(200px) translateY(50px); }
+    75%  { transform: translate(-50%, -50%) translateX(-100px) translateY(70px); }
+    100% { transform: translate(-50%, -50%) translateX(-160px) translateY(-20px); }
+}
+
+.body {
+    width: 100%;
+    height: 20px;
+    background:  #1c253c;
+    border-radius: 50% / 70%;
+    position: absolute;
+    top: 10px;
+    border: rgb(135, 135, 135) 1px solid;
+}
+
+.cockpit {
+    width: 40px;
+    height: 20px;
+    background: rgb(137, 184, 255);
+    border-radius: 50% 50% 20% 20%;
+    position: absolute;
+    top: -3px;
+    left: 22px;
+    border: 2px solid rgb(216, 216, 216);
+}
+
+/* Cannons */
+.cannon-left,
+.cannon-right {
+    width: 14px;
+    height: 7px;
+    background: #bbb;
+    border-radius: 4px;
+    position: absolute;
+    top: 16px;
+    right: 0;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+    animation: cannonWobble 2.5s infinite ease-in-out;
+}
+
+.cannon-left { right: 12px; }
+
+.cannon-tip {
+    width: 6px;
+    height: 4px;
+    background: cyan;
+    border-radius: 3px;
+    position: absolute;
+    right: -6px;
+    top: 1px;
+}
+
+@keyframes cannonWobble {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-1px); }
+    100% { transform: translateY(0); }
+}
+
+/* Bullets */
+.bullet {
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background: cyan;
+    border-radius: 2px;
+    box-shadow: 0 0 6px cyan;
+    pointer-events: none;
+}
+
+/* UFO floating + wobbling */
+@keyframes ufoFloat {
+    0%,100% { transform: translateY(-2%); }
+    50%     { transform: translateY(2%); }
+}
+
+@keyframes wobble {
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(1deg); }
+    50%  { transform: rotate(-1deg); }
+    75%  { transform: rotate(1deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Shooting stars */
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 6px white;
+    opacity: 0.9;
+    animation: shoot 1s linear forwards;
+}
+
+@keyframes shoot {
+    0% { opacity: 1; transform: translate(0, 0) scale(1); }
+    100% { opacity: 0; transform: translate(-160px, 80px) scale(1.6); }
+}
+
+
+
+
+
   
 
 
