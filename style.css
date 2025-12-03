@@ -3,6 +3,12 @@
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+     
+}
+
+html{
+    
+    overflow-x: hidden;   /* hides horizontal scrollbar */
 }
 
 .my-logo{
