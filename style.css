@@ -6,10 +6,16 @@
      
 }
 
-html{
-    
-    overflow-x: hidden;   /* hides horizontal scrollbar */
+html, body {
+    overflow-y: scroll;            /* Keeps vertical scrolling functional */
+    scrollbar-width: none;             /* Hides scrollbar in Firefox */
+    overflow-x: hidden;  
 }
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;              /* Hides scrollbar in Chrome, Safari, Opera */
+}
+
 
 .my-logo{
     width: 600px;
@@ -1507,7 +1513,7 @@ header{
     width: 100%;
     text-align: center;
     color: #f1f3f5;
-    font-size: 10px;
+    font-size: 12px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
