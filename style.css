@@ -1997,8 +1997,10 @@ header{
     margin-bottom: 0em;
 }
 .service:hover{
+    display: none;
     background-color: #1d2127;
     border-radius: 10px;
+    height: 100%;
 }
 
 .second-service-con{
