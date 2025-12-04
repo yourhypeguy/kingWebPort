@@ -1307,6 +1307,12 @@ body{
     0% { opacity: 1; transform: translate(0, 0) scale(1); }
     100% { opacity: 0; transform: translate(-160px, 80px) scale(1.6); }
 }
+.cv-text{
+    text-decoration: none;
+    color: #CC0088;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+}
 
 
 /* MOBILE CSS */
@@ -2341,7 +2347,12 @@ header{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
- .guest-hr{
+.cv-text{
+    text-decoration: none;
+}
+
+
+.guest-hr{
     width: 70%;
     margin: 0px auto;
 }
