@@ -14,6 +14,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+            <!-- Loading Screen -->
+        <div id="loader">
+        <div class="loader-ring"></div>
+        <div class="loader-text"></div>
+        </div>
+
+        <!-- Your website content -->
+        <div id="content" style="display:none;">
+        <!-- Your whole portfolio goes here -->
+        </div>
+
     <img class="my-logo" src="./PNG/my-logo.png" alt="">
     <header>
         <nav>
@@ -213,6 +224,33 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script>
+
+        /* Dynamic typing text */
+const text = "Creative Thinker, Organized and Fun ...";
+const loaderText = document.querySelector(".loader-text");
+let index = 0;
+
+function typeText() {
+  if (index < text.length) {
+    loaderText.textContent += text[index];
+    index++;
+    setTimeout(typeText, 50);
+  }
+}
+
+window.addEventListener("load", () => {
+  typeText();
+
+  /* Show website after loader */
+  setTimeout(() => {
+    document.getElementById("content").style.display = "block";
+  }, 3200); // Matches fadeOut animation
+});
+
+
+
+
+
 const space = document.querySelector(".space-layer");
 
 /* ⭐ 190 STARS ⭐ */
